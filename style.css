@@ -1,0 +1,133 @@
+/* Styles communs : modifiez ici les couleurs, tailles et espacements. */
+:root { --paper: #e9e3e3; --ink: #202020; --accent: #b42b18; }
+* { box-sizing: border-box; }
+html { min-height: 100%; }
+body { margin: 0; padding: 6px 18px 14px; background: var(--ink); font-family: Arial, Helvetica, sans-serif; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid currentColor; outline-offset: 7px; }
+.page { position: relative; min-height: calc(100vh - 20px); min-height: calc(100svh - 20px); display: flex; flex-direction: column; }
+/* Remplacez assets/fond-accueil.jpg par votre photo sans textes. */
+.home .page { color: #fff; background-color: #343536; background-image: url('assets/fond-accueil.jpg'); background-size: cover; background-position: center; }
+.site-header { display: flex; align-items: center; gap: 30px; padding: 8px 10px 16px; position: relative; z-index: 1; }
+.home .site-header { background: linear-gradient(#0005, transparent); }
+.logo { flex-shrink: 0; display: inline-flex; align-items: center; padding: 8px 0; }
+.logo img { width: 144px; height: 24px; display: block; }
+.navigation { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.navigation a, .site-footer a { font-size: clamp(16px, 1.65vw, 26px); font-style: italic; font-weight: 800; white-space: nowrap; }
+.navigation a:nth-child(n+6) { font-size: clamp(15px, 1.4vw, 22px); }
+.navigation a, .site-footer a { border-bottom: 2px solid transparent; padding-block: 3px; }
+.navigation a:hover, .site-footer a:hover, a[aria-current="page"] { border-bottom-color: currentColor; }
+.welcome { position: absolute; top: 35.8%; left: 0; right: 0; display: flex; align-items: center; flex-direction: column; text-align: center; }
+.welcome h1 { margin: 0; color: var(--paper); font-size: clamp(44px, 4.2vw, 68px); font-weight: 800; font-style: italic; line-height: 1.15; }
+.site-footer { margin-top: auto; padding: 30px; position: relative; }
+.site-footer nav { display: flex; justify-content: center; align-items: center; gap: clamp(32px, 7.2vw, 115px); flex-wrap: wrap; }
+.category .page { background: #fff; color: var(--ink); }
+.category .site-header { border-bottom: 1px solid #eee; }
+.category .logo img { filter: brightness(0); }
+.category-content { padding: 65px 40px; flex: 1; }
+.category-content h1 { margin: 0; font-size: clamp(32px, 4vw, 52px); }
+.category .site-footer { border-top: 1px solid #eee; }
+.skip-link { position: fixed; top: -100px; left: 20px; z-index: 10; background: #fff; color: #111; padding: 12px; }
+.skip-link:focus { top: 10px; }
+@media (max-width: 1100px) {
+ .site-header { flex-wrap: wrap; justify-content: center; gap: 12px; padding: 16px; }
+ .navigation { flex-basis: 100%; justify-content: center; flex-wrap: wrap; gap: 10px 24px; }
+ .navigation a, .navigation a:nth-child(n+6) { font-size: 18px; }
+ .site-footer a { font-size: 20px; }
+}
+@media (max-width: 600px) {
+ body { padding: 0; }
+ .page { min-height: 100vh; min-height: 100svh; }
+ .home .page { background-position: 62% center; }
+ .site-header { padding: 20px 16px; }
+ .navigation { gap: 8px 18px; }
+ .navigation a, .navigation a:nth-child(n+6) { font-size: 16px; }
+ .welcome { top: 39%; }
+ .site-footer { padding: 24px 18px; }
+ .site-footer nav { justify-content: center; gap: 14px 24px; }
+ .site-footer a { font-size: 16px; }
+ .category-content { padding: 40px 24px; }
+}
+@media (max-height: 550px) {
+ .welcome { position: static; padding: 28px 16px 40px; }
+}
+
+/* Étape 1 : icônes et emblème central */
+.navigation a { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.nav-icon { width: 24px; height: 24px; flex: 0 0 auto; }
+.navigation .icon-link { min-width: 44px; min-height: 44px; border-radius: 6px; }
+.icon-link:hover { background: #8883; }
+.green-energy { color: #9fe8b3; }
+.category .green-energy { color: #237d43; }
+.hero-emblem { display: block; width: 100px; height: 116px; margin-top: 48px; filter: drop-shadow(0 2px 8px #0005); }
+@media (max-width: 1250px) {
+ .site-header { flex-wrap: wrap; justify-content: center; gap: 12px; padding: 16px; }
+ .navigation { flex-basis: 100%; justify-content: center; flex-wrap: wrap; gap: 10px 24px; }
+ .navigation a, .navigation a:nth-child(n+6) { font-size: 18px; }
+}
+@media (max-width: 600px) {
+ .navigation { gap: 8px 16px; }
+ .navigation a, .navigation a:nth-child(n+6) { font-size: 16px; }
+ .nav-icon { width: 22px; height: 22px; }
+ .hero-emblem { width: 78px; height: 90px; margin-top: 32px; }
+}
+
+/* Étape 2 : catalogue et fiches véhicules */
+.catalog-content,.product-content { width: 100%; max-width: 1400px; margin: 0 auto; padding: 52px 40px 72px; flex: 1; }
+.catalog-intro { text-align:center; margin-bottom:24px; }
+.eyebrow { font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#666; }
+.catalog-intro h1,.product-info h1 { font-size:clamp(32px,4vw,52px); letter-spacing:-1.5px; margin:12px 0; }
+.catalog-intro>p:last-child { color:#62656b; font-size:18px; }
+.demo-note { font-size:12px; line-height:1.6; color:#656971; }
+.catalog-content>.demo-note { text-align:center; margin:0 0 32px; }
+.vehicle-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.vehicle-card { background:#f5f5f5; border:1px solid #e9e9e9; border-radius:16px; padding:26px; display:block; transition:background .18s,border-color .18s; }
+.vehicle-card:hover { background:#eee; border-color:#aaa; }
+.card-top,.card-bottom { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.card-top { font-size:13px; color:#666; flex-wrap:wrap; }
+.stock { display:inline-block; background:#e6ebe7; color:#38533f; padding:7px 12px; border-radius:20px; font-size:12px; }
+.vehicle-card img { width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; display:block; margin:12px 0; }
+.vehicle-card h2 { margin:0; font-size:30px; letter-spacing:-.8px; }
+.vehicle-card p { color:#60646b; font-size:14px; margin:10px 0 16px; }
+.vehicle-card strong { font-size:16px; font-weight:500; }
+.card-arrow { font-size:26px; }
+.card-cta { display:block; font-size:13px; font-weight:700; margin-top:24px; }
+.back-link { display:inline-block; font-size:14px; margin-bottom:30px; text-decoration:underline; text-underline-offset:4px; }
+.product-layout { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:48px; align-items:start; }
+.product-visual { background:#f4f4f4; border-radius:16px; padding:24px; }
+.product-visual img { display:block; width:100%; height:auto; object-fit:contain; margin:35px 0; }
+.product-visual>p { font-size:12px; color:#666; line-height:1.6; }
+.product-info>p { line-height:1.6; }
+.product-info .product-price { font-size:30px; font-weight:700; margin:24px 0 8px; }
+.product-info .stock { margin:0 0 24px; }
+fieldset { border:0; padding:0; margin:0; min-width:0; }
+legend { font-weight:700; margin-bottom:14px; }
+.color-options { display:flex; flex-wrap:wrap; gap:8px; }
+.color-choice { position:relative; display:flex; gap:9px; align-items:center; padding:10px; border:1px solid #d5d5d5; border-radius:8px; cursor:pointer; font-size:13px; }
+.color-choice:has(input:checked) { border-color:#202020; background:#f0f0f0; box-shadow:inset 0 0 0 1px #202020; }
+.color-choice:has(input:focus-visible) { outline:3px solid #3464c9; outline-offset:3px; }
+.color-choice input { position:absolute; opacity:0; width:1px; height:1px; }
+.color-choice small { display:block; margin-top:4px; color:#666; }
+.color-dot { width:22px; height:22px; border-radius:50%; background:var(--swatch); border:1px solid #bbb; }
+#color-summary { font-size:13px; margin-block:18px; }
+.primary-button { width:100%; border:0; border-radius:6px; background:#202020; color:white; font:600 15px Arial,sans-serif; padding:16px; cursor:pointer; }
+.primary-button:hover { background:#3c3c3c; }
+.primary-button:focus-visible { outline:3px solid #3464c9; outline-offset:4px; }
+.primary-button:disabled { background:#dedede; color:#666; cursor:not-allowed; }
+.cart-feedback { min-height:40px; font-size:13px; line-height:1.5; color:#38533f; }
+.spec-section { margin-top:56px; padding-top:28px; border-top:1px solid #ddd; }
+.spec-section h2 { font-size:26px; }
+.spec-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.spec-grid div { border-bottom:1px solid #eee; padding-bottom:20px; }
+.spec-grid dt { color:#676a70; font-size:13px; }
+.spec-grid dd { margin:10px 0 0; font-size:22px; font-weight:600; }
+@media(max-width:850px) { .product-layout { grid-template-columns:1fr; gap:30px; } }
+@media(max-width:600px) {
+ .catalog-content,.product-content { padding:32px 20px 48px; }
+ .vehicle-grid { grid-template-columns:1fr; gap:18px; }
+ .vehicle-card { padding:20px; }
+ .spec-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+ .spec-grid dd { font-size:18px; }
+ .product-visual img { margin:10px 0; }
+}
+@media(prefers-reduced-motion:reduce) { .vehicle-card { transition:none; } }
